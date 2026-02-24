@@ -1,29 +1,28 @@
 #!/usr/bin/env php
 <?php
 
-use CodeIgniter\CLI\CommandRunner;
+use CodeIgniter\Boot;
+use Config\Paths;
 
-if (! defined('ROOTPATH')) {
-    define('ROOTPATH', __DIR__ . DIRECTORY_SEPARATOR);
+// Path to the front controller (this file)
+define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
+
+// Ensure the current directory is pointing to the front controller's directory
+if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
+    chdir(FCPATH);
 }
 
-if (! defined('APPPATH')) {
-    define('APPPATH', ROOTPATH . 'app' . DIRECTORY_SEPARATOR);
-}
+require FCPATH . 'app/Config/Paths.php';
 
-require ROOTPATH . 'app/Config/Paths.php';
+$paths = new Paths();
 
-if (! defined('SYSTEMPATH')) {
-    $paths = new Config\Paths();
-    define('SYSTEMPATH', realpath($paths->systemDirectory) . DIRECTORY_SEPARATOR);
-}
-
-if (! is_file(ROOTPATH . 'vendor/autoload.php')) {
-    fwrite(STDERR, "Dependencies missing. Run: composer install\n");
+$bootFile = rtrim($paths->systemDirectory, '/\\') . '/Boot.php';
+if (! is_file($bootFile)) {
+    fwrite(STDERR, "Dependencies missing or incomplete. Run: composer install\n");
     exit(1);
 }
 
-require ROOTPATH . 'vendor/autoload.php';
-require SYSTEMPATH . 'bootstrap.php';
+// LOAD THE FRAMEWORK BOOTSTRAP FILE
+require $bootFile;
 
-exit((new CommandRunner())->run());
+exit(Boot::bootSpark($paths));

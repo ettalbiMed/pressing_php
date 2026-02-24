@@ -72,3 +72,15 @@ Puis relancez:
 composer install
 php spark
 ```
+
+
+### Erreur fréquente (upgrade CI4 4.5 incomplet)
+Si vous voyez:
+`This "system/bootstrap.php" is no longer used ... upgrade_450`
+cela signifie que les anciens entrypoints étaient encore utilisés.
+Ce dépôt utilise désormais les entrypoints CI4 4.5+ (`Boot.php`).
+Relancez:
+```bash
+composer install
+php spark migrate
+```
