@@ -1,0 +1,4 @@
+/vendor/
+/writable/
+/.phpunit.result.cache
+.env.local

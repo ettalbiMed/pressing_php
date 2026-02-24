@@ -1,0 +1,49 @@
+# Pressing éco-responsable — One Page CI4
+
+## Cloner le projet
+```bash
+git clone <URL_DU_REPO>
+cd pressing_php
+```
+
+## Prérequis
+- PHP 8.1+
+- Composer
+- MySQL 8+
+
+## Installation (depuis le clone)
+```bash
+composer install
+cp .env .env.local # optionnel si vous séparez les environnements
+# ou éditez directement .env
+# Configurer .env: app.baseURL + database.default.*
+```
+
+## Lancer l’application
+Ce dépôt contient le code applicatif (controllers/views/assets/config), mais si votre environnement attend la structure CI4 complète (`public/index.php`, `spark`, etc.), créez-la d’abord puis copiez `app/` et `public/assets/` dedans:
+
+```bash
+composer create-project codeigniter4/appstarter ci4-shell
+# Copier ensuite les dossiers/fichiers de ce dépôt dans le shell CI4
+```
+
+Ensuite:
+```bash
+php spark migrate
+php spark serve
+```
+
+## Où modifier
+- `app/Config/Site.php` : contenu, NAP, SEO, coordonnées GEO, liens sociaux.
+- `public/assets/img/hero/*` et `public/assets/img/gallery/*` : images locales.
+- `public/assets/css/app.css` et `public/assets/js/app.js` : thème et interactions.
+
+## Soumission Google
+1. Activer Google Search Console.
+2. Soumettre `https://votredomaine/sitemap.xml`.
+3. Vérifier `https://votredomaine/robots.txt`.
+
+## Notes performance & accessibilité
+- UI mobile-first, contraste élevé, focus visible, aria-labels.
+- JS vanilla léger (carousel + IntersectionObserver).
+- Génération JSON-LD LocalBusiness + WebSite + FAQPage incluse.
