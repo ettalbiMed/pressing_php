@@ -46,13 +46,12 @@
         </div>
     </section>
 
-    <section id="about" class="container section section-target reveal">
-        <h2>À propos</h2>
-        <p>Notre équipe conçoit un soin textile exigeant, pensé pour durer. Nous privilégions les cycles maîtrisés, les produits responsables et une logistique optimisée pour Témara.</p>
-        <div class="pillars grid-3">
-            <article class="card"><h3>🌿 Éco</h3><p>Procédés doux, économies d’eau et emballages raisonnés.</p></article>
-            <article class="card"><h3>✨ Qualité</h3><p>Contrôle visuel de chaque pièce et finitions haut de gamme.</p></article>
-            <article class="card"><h3>⚡ Rapidité</h3><p>Organisation locale pour des délais courts et fiables.</p></article>
+    <section id="about" class="section section-target reveal about-section">
+        <div class="container">
+            <h2>À propos</h2>
+            <p>ITRI Clean réinvente le pressing éco-responsable pour le linge du quotidien, les vêtements délicats et le textile d’ameublement. Notre promesse : le luxe au prix juste, avec un soin précis qui prolonge la vie de vos pièces tout en limitant fortement l’impact sur l’environnement.</p>
+            <p>Forts de plus de 15 ans d’expérience, nous combinons savoir-faire métier, innovation et technologie au service du client pour garantir un résultat impeccable, constant et maîtrisé.</p>
+            <p>Grâce à des procédés non toxiques et une approche moderne du soin textile — sans perlo (sans perchloroéthylène) — nous préservons vos articles, votre santé et celle de nos équipes, tout en valorisant une durabilité réelle, article après article.</p>
         </div>
     </section>
 
