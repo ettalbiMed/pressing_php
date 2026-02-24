@@ -2,7 +2,6 @@ const nav = document.querySelector('.navbar');
 const menuBtn = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-links');
 const logo = document.querySelector('.logo');
-const hero = document.querySelector('#home');
 
 menuBtn?.addEventListener('click', () => {
   const open = navMenu.classList.toggle('open');
@@ -39,7 +38,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
 window.addEventListener('scroll', () => {
-  const compact = window.scrollY > (hero?.offsetHeight || 600) / 2;
+  const compact = window.scrollY > 10;
   nav?.classList.toggle('nav-scrolled', compact);
   logo?.classList.toggle('logo--compact', compact);
 });
