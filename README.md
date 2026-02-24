@@ -56,3 +56,19 @@ Ensuite lancez simplement:
 composer install
 php spark
 ```
+
+
+### Erreur fréquente (Constants.php manquant)
+Si vous voyez une erreur du type:
+`Failed opening required app\Config/Constants.php`,
+vérifiez que les fichiers suivants existent bien:
+- `app/Config/Constants.php`
+- `app/Config/Boot/development.php`
+- `app/Config/Boot/production.php`
+- `app/Config/Boot/testing.php`
+
+Puis relancez:
+```bash
+composer install
+php spark
+```
