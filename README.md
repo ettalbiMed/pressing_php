@@ -47,3 +47,12 @@ php spark serve
 - UI mobile-first, contraste élevé, focus visible, aria-labels.
 - JS vanilla léger (carousel + IntersectionObserver).
 - Génération JSON-LD LocalBusiness + WebSite + FAQPage incluse.
+
+
+### Erreur fréquente
+Si vous aviez `Could not open input file: spark`, le script `spark` est désormais inclus à la racine.
+Ensuite lancez simplement:
+```bash
+composer install
+php spark
+```

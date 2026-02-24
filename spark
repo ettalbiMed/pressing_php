@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+use CodeIgniter\CLI\CommandRunner;
+
+if (! defined('ROOTPATH')) {
+    define('ROOTPATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+if (! defined('APPPATH')) {
+    define('APPPATH', ROOTPATH . 'app' . DIRECTORY_SEPARATOR);
+}
+
+require ROOTPATH . 'app/Config/Paths.php';
+
+if (! defined('SYSTEMPATH')) {
+    $paths = new Config\Paths();
+    define('SYSTEMPATH', realpath($paths->systemDirectory) . DIRECTORY_SEPARATOR);
+}
+
+if (! is_file(ROOTPATH . 'vendor/autoload.php')) {
+    fwrite(STDERR, "Dependencies missing. Run: composer install\n");
+    exit(1);
+}
+
+require ROOTPATH . 'vendor/autoload.php';
+require SYSTEMPATH . 'bootstrap.php';
+
+exit((new CommandRunner())->run());
