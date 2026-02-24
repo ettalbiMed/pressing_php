@@ -92,3 +92,8 @@ Si `php spark migrate` affiche `The WRITEPATH is not set correctly.`:
 - sous Windows/WAMP, évitez les chemins cassés via `realpath()` si le dossier n'existe pas encore
 
 Ce dépôt initialise maintenant `WRITEPATH` avec un chemin absolu stable et crée `writable/` automatiquement si nécessaire.
+
+
+### Correctif appliqué pour WAMP
+Le chemin `writable` est désormais calculé dans `app/Config/Paths.php` avec un chemin absolu basé sur la racine du projet, puis créé automatiquement s'il n'existe pas.
+Cela évite l'erreur persistante `The WRITEPATH is not set correctly.` sur certains environnements Windows.
