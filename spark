@@ -14,6 +14,15 @@ if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
 
 require FCPATH . 'app/Config/Paths.php';
 
+$rootPath = dirname(__DIR__) . DIRECTORY_SEPARATOR;
+if (basename(__DIR__) !== 'public') {
+    $rootPath = __DIR__ . DIRECTORY_SEPARATOR;
+}
+
+defined('ROOTPATH') || define('ROOTPATH', $rootPath);
+defined('VENDORPATH') || define('VENDORPATH', ROOTPATH . 'vendor' . DIRECTORY_SEPARATOR);
+defined('COMPOSER_PATH') || define('COMPOSER_PATH', VENDORPATH . 'composer' . DIRECTORY_SEPARATOR);
+
 $paths = new Paths();
 
 $bootFile = rtrim($paths->systemDirectory, '/\\') . '/Boot.php';

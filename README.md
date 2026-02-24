@@ -97,3 +97,9 @@ Ce dépôt initialise maintenant `WRITEPATH` avec un chemin absolu stable et cr�
 ### Correctif appliqué pour WAMP
 Le chemin `writable` est désormais calculé dans `app/Config/Paths.php` avec un chemin absolu basé sur la racine du projet, puis créé automatiquement s'il n'existe pas.
 Cela évite l'erreur persistante `The WRITEPATH is not set correctly.` sur certains environnements Windows.
+
+
+### Erreur fréquente (COMPOSER_PATH non défini)
+Si vous voyez `Undefined constant "CodeIgniter\COMPOSER_PATH"` dans `Boot.php`,
+les entrypoints n'exposaient pas les constantes attendues par CI4.
+Ce dépôt définit maintenant `ROOTPATH`, `VENDORPATH` et `COMPOSER_PATH` dans `spark` et `public/index.php`.
