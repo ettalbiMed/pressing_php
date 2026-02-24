@@ -84,3 +84,11 @@ Relancez:
 composer install
 php spark migrate
 ```
+
+
+### Erreur fréquente (WRITEPATH)
+Si `php spark migrate` affiche `The WRITEPATH is not set correctly.`:
+- vérifiez que le dossier `writable/` existe à la racine du projet
+- sous Windows/WAMP, évitez les chemins cassés via `realpath()` si le dossier n'existe pas encore
+
+Ce dépôt initialise maintenant `WRITEPATH` avec un chemin absolu stable et crée `writable/` automatiquement si nécessaire.

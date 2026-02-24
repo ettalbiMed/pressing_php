@@ -10,11 +10,21 @@ defined('ENVIRONMENT') || define('ENVIRONMENT', $_SERVER['CI_ENVIRONMENT'] ?? 'p
 // APP PATHS
 // --------------------------------------------------------------------
 
-defined('WRITEPATH') || define('WRITEPATH', realpath(__DIR__ . '/../../writable') . DIRECTORY_SEPARATOR);
-defined('APPPATH') || define('APPPATH', realpath(__DIR__ . '/..') . DIRECTORY_SEPARATOR);
-defined('ROOTPATH') || define('ROOTPATH', realpath(APPPATH . '../') . DIRECTORY_SEPARATOR);
-defined('SYSTEMPATH') || define('SYSTEMPATH', realpath(ROOTPATH . 'vendor/codeigniter4/framework/system') . DIRECTORY_SEPARATOR);
-defined('FCPATH') || define('FCPATH', ROOTPATH . 'public' . DIRECTORY_SEPARATOR);
+$rootPath     = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR;
+$appPath      = __DIR__ . DIRECTORY_SEPARATOR;
+$writePath    = $rootPath . 'writable' . DIRECTORY_SEPARATOR;
+$systemPath   = $rootPath . 'vendor' . DIRECTORY_SEPARATOR . 'codeigniter4' . DIRECTORY_SEPARATOR . 'framework' . DIRECTORY_SEPARATOR . 'system' . DIRECTORY_SEPARATOR;
+$publicPath   = $rootPath . 'public' . DIRECTORY_SEPARATOR;
+
+if (! is_dir($writePath)) {
+    @mkdir($writePath, 0775, true);
+}
+
+defined('WRITEPATH') || define('WRITEPATH', $writePath);
+defined('APPPATH') || define('APPPATH', $appPath);
+defined('ROOTPATH') || define('ROOTPATH', $rootPath);
+defined('SYSTEMPATH') || define('SYSTEMPATH', $systemPath);
+defined('FCPATH') || define('FCPATH', $publicPath);
 
 // --------------------------------------------------------------------
 // EXIT STATUS CODES
